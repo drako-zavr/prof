@@ -1,0 +1,103 @@
+/* CSS Document */
+body {
+font-family: Trebuchet MS;}
+.header {
+height: 200px;
+background:#337AB7/*4678B3*/;
+margin-bottom:10px;}
+
+#logo {
+padding: 10px;
+}
+
+#header_zag {
+color:#EEE300;
+font-size:30px;
+margin-top:60px;
+text-align:center;
+}
+
+#logo img {
+height: 180px;}
+
+.centr {
+min-height: 770px;
+background:#fff;
+}
+
+#menu {
+font-size:16px;
+}
+
+#mainmenu {
+list-style:none;
+margin: 0px;
+padding: 0px;
+}
+
+#mainmenu a {
+text-decoration:none;
+background:#4678B3;
+color: #fff;
+padding:10px;
+display:block;
+font-size:14px;
+}
+
+#content {
+box-shadow: 0 0 10px rgba(0,0,0,0.2);
+min-height: 770px;
+padding:15px;
+margin-bottom:10px;
+border-radius: 5px;}
+
+.imnews {
+width:150px;}
+
+#naverh {
+    color: #337AB7;
+    background: #FFF none repeat scroll 0% 0%;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    // display: none;
+    font-size: 150%;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    z-index: 10002;
+}
+
+.footer {
+height: 100px;
+
+text-align:center;
+background:#172A4B;}
+
+#footer_text {
+color: #EEE300;
+margin-top: 40px;
+}
+
+
+@media (max-width: 992px) {
+#logo img {
+height: 150px;
+margin-top:15px
+}
+
+#header_zag {
+font-size:30px;
+margin-top:80px;
+}
+}
+
+@media (max-width: 766px) {
+
+
+#header_zag {
+font-size:30px;
+margin-top:60px;
+text-align:center;
+}
+}
