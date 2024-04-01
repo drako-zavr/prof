@@ -1,12 +1,9 @@
 from django.contrib import admin
 from apps.core.utils.admin import BaseAdminMixin
 
-# Register your models here.
 from .models import Article
 from .models import ArticleImage
-# from .models import (
-#     Memory,
-# )
+
 
 
 class ImageInline(admin.StackedInline):
@@ -19,9 +16,4 @@ class ArticleAdmin(BaseAdminMixin, admin.ModelAdmin):
     list_display = ("title",)
     inlines = (ImageInline,)
 
-# @admin.register(Memory)
-# class DocumentAdmin( BaseAdminMixin, admin.ModelAdmin):
-#     list_display = (
-#         "firstname",
-#     )
 

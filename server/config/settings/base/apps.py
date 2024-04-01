@@ -29,6 +29,7 @@ PROJECT_APPS = [
     "apps.api.auth",
     # 
     "apps.api.articles",
+    "apps.api.content",
 ]
 
 DEVELOPER_APPS = [
