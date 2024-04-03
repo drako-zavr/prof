@@ -13,7 +13,7 @@ class ImageInline(admin.StackedInline):
 @admin.register(Article)
 class ArticleAdmin(BaseAdminMixin, admin.ModelAdmin):
     """Админка новостей"""
-    list_display = ("title",)
+    list_display = ("title","pub_date")
     inlines = (ImageInline,)
 
 

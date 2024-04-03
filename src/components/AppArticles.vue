@@ -21,7 +21,7 @@
 
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="2016">
-              <div v-for="article in sortedArray.slice(-2).reverse()" :key="article.id">
+              <div v-for="article in sortedArray.slice(-5).reverse()" :key="article.id">
                 <AppArticle :article="article" />
               </div>
             </div>

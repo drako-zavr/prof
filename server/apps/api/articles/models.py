@@ -7,7 +7,7 @@ class Article(models.Model):
     Модель новости
     """
 
-    title = models.CharField(verbose_name=_("Заголовок"), max_length=1023)#change to TextField?
+    title = models.CharField(verbose_name=_("Заголовок"), max_length=1023)
     photo = models.ImageField(verbose_name=_("Фотография"), default="zaglushka.jpg", upload_to="content/news") 
     content = models.TextField(verbose_name=_("Содержание"))
     pub_date = models.DateField(verbose_name=_("Дата публикации"),default=datetime.date.today)
@@ -25,7 +25,7 @@ class ArticleImage(models.Model):
     Модель изображений новости
     """
     article = models.ForeignKey(Article, verbose_name=_("Новость"), on_delete=models.CASCADE, related_name="images")
-    photo = models.ImageField(verbose_name=_("Фотография"), blank=True)#upload_to="content/news/gallery"
+    photo = models.ImageField(verbose_name=_("Фотография"), blank=True, upload_to="content/news/gallery")
     order = models.PositiveIntegerField(
         _("Порядок вывода"),
         default=0,

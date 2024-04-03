@@ -57,7 +57,7 @@ const isLoading = ref<boolean>(true);
 // пагинация
 const paginatedArray = ref<Article[]>([]);
 var pageNumber = ref<number>(0)
-const size = ref<number>(2)
+const size = ref<number>(15)
 let arrayLength = ref<number>(0);
 
 onMounted(async () => {

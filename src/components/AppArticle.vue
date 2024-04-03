@@ -14,7 +14,7 @@
                             <div>
                                 <p v-html="article?.content"></p>
                             </div>
-                            <div class="row">
+                            <div class="row justify-center items-center">
                                 <div v-for="articlephoto in article?.images" :key="articlephoto.id">
                                     <img @click="carousel = true; slide = articlephoto.order" v-if="articlephoto?.photo"
                                         :src="articlephoto?.photo" style="border:1px solid #FFF; width:150px;"
