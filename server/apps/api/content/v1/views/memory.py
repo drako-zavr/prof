@@ -1,4 +1,4 @@
-from rest_framework import views, generics
+from rest_framework import generics
 from ...models import Memory
 from ..serializers import MemorySerializer
 
