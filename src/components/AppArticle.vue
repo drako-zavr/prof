@@ -13,6 +13,9 @@
                         <q-card-section>
                             <div>
                                 <p v-html="article?.content"></p>
+                                <div v-for="articledocument in article?.documents" :key="articledocument.id">
+                                <p><a :href="articledocument.fileContent" target="_blank">{{articledocument.title}}</a></p>
+                                </div>
                             </div>
                             <div class="row justify-center items-center">
                                 <div v-for="articlephoto in article?.images" :key="articlephoto.id">

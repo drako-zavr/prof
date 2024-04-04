@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import FileExtensionValidator
 
 class Article(models.Model):
     """
@@ -40,3 +41,33 @@ class ArticleImage(models.Model):
         verbose_name = _("Изображение")
         verbose_name_plural = _("Изображения")
         ordering = ["order"]
+
+class ArticleDocument(models.Model):
+    """
+    Модель документов новости
+    """
+    article = models.ForeignKey(Article, verbose_name=_("Новость"), on_delete=models.CASCADE, related_name="documents")
+    title = models.CharField(verbose_name=_("Заголовок"), max_length=255)
+    file_content = models.FileField(_("Документ"),upload_to="content/news/documents",
+        validators=[
+            FileExtensionValidator(
+                (
+                    "pdf",
+                    "doc",
+                    "docx",
+                    "pptx"
+                )
+            )
+        ],
+        blank=True,
+        null=True
+    )
+
+
+    def __str__(self):
+        return self.article.title
+
+    class Meta:
+        verbose_name = _("Документ")
+        verbose_name_plural = _("Документы")
+        ordering = ["id"]
