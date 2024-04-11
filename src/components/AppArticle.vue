@@ -5,7 +5,6 @@
         </div>
         <div class="col-lg-8 col-md-4 col-sm-4 alpha">
             <div>
-                <!-- <p>{{ article?.title }}</p> -->
                 <p v-html="article?.title"></p>
                 <br><br>
                 <q-expansion-item v-model="expanded" label="Подробнее">
@@ -27,12 +26,12 @@
                             <q-dialog v-model="carousel">
                                 <q-carousel transition-prev="slide-right" transition-next="slide-left" swipeable
                                     animated v-model="slide" control-color="black"
-                                    navigation-icon="radio_button_unchecked" navigation arrows height="200px"
-                                    class="bg-white shadow-1 rounded-borders" style="min-width:600px; height:500px">
+                                    navigation-icon="radio_button_unchecked" navigation arrows
+                                    class="bg-white shadow-1 rounded-borders gallery" >
                                     <q-carousel-slide v-for="articlephoto in article?.images" :key="articlephoto.id"
                                         :name="articlephoto.order" class="column no-wrap flex-center">
                                         <img v-if="articlephoto?.photo" :src="articlephoto?.photo"
-                                            style="width: 500px;">
+                                            class="gallery__image">
                                     </q-carousel-slide>
                                 </q-carousel>
                             </q-dialog>
