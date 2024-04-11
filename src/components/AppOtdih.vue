@@ -57,8 +57,8 @@
                             выходные
                             и праздничные дни по предварительной заявке</strong><strong> </strong></p>
                     <q-dialog v-model="dialog" ref="dialogRef">
-                        <q-card style="min-width: 70%;">
-                            <OtdihModal />
+                        <q-card class="modal-otdih">
+                            <OtdihModal v-on:close-dialog="closeDialog" />
                         </q-card>
                     </q-dialog>
                 </div>
@@ -70,5 +70,9 @@
 import SideBar from 'src/layouts/SideBar.vue';
 import OtdihModal from 'src/components/OtdihModal.vue';
 import { ref } from 'vue';
-const dialog = ref<boolean>(false);
+
+var dialog = ref<boolean>(false);
+function closeDialog() {
+    dialog.value = false
+}
 </script>

@@ -1,8 +1,6 @@
 <template>
-
-
   <div class="modal-header">
-    <button type="button" class="close" >&times;</button>
+    <button type="button" class="close" @click="$emit('close-dialog')" >&times;</button>
     <h4 class="modal-title" id="myModalLabel">СПОРТИВНЫЕ СЕКЦИИ</h4>
   </div>
   <div class="modal-body">
@@ -71,45 +69,55 @@
       площадки.
     </p>
     <center>
-      <a class="fancybox" href="src/assets/images/otdih/sport/01.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/01_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/02.jpg" rel="sport"><img
-          src="src/assets/images/otdih/sport/02_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/03.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/03_s.jpg" /></a>&nbsp;<br /><br />
-      <a class="fancybox" href="src/assets/images/otdih/sport/04.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/04_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/05.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/05_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/06.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/06_s.jpg" /></a>&nbsp;<br /><br />
-      <a class="fancybox" href="src/assets/images/otdih/sport/07.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/07_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/08.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/08_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/09.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/09_s.jpg" /></a>&nbsp;<br /><br />
-      <a class="fancybox" href="src/assets/images/otdih/sport/10.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/10_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/11.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/11_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/12.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/12_s.jpg" /></a>&nbsp;<br /><br />
-      <a class="fancybox" href="src/assets/images/otdih/sport/13.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/13_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/14.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/14_s.jpg" /></a>&nbsp;
-      <a class="fancybox" href="src/assets/images/otdih/sport/15.jpg" rel="sport"><img
-          src="../assets/images/otdih/sport/15_s.jpg" /></a>&nbsp;<br /><br />
-
+                    <div class="row  items-center justify-center">
+                                
+                                    <img  v-for="articlephoto in gallery" :key="articlephoto.order" @click="carousel = true; slide = articlephoto.order" 
+                                        :src="articlephoto?.photo" style="border:1px solid #FFF; width:250px;"
+                                        class="col-4">
+                                
+                            </div>
+                            <q-dialog v-model="carousel">
+                                <q-carousel transition-prev="slide-right" transition-next="slide-left" swipeable
+                                    animated v-model="slide" control-color="black"
+                                    navigation-icon="radio_button_unchecked" navigation arrows 
+                                    class="bg-white shadow-1 rounded-borders gallery" >
+                                    <q-carousel-slide v-for="articlephoto in gallery" :key="articlephoto.order"
+                                        :name="articlephoto.order" class="column no-wrap flex-center">
+                                        <img v-if="articlephoto?.photo" :src="articlephoto?.photo"
+                                            class="gallery__image">
+                                    </q-carousel-slide>
+                                </q-carousel>
+                            </q-dialog>
     </center>
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" @click="$emit('close-dialog')">Закрыть</button>
   </div>
 
 </template>
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const slide = ref<number>(0)
+const carousel = ref<boolean>(false)
+
+const gallery = [
+      { order: 1, photo: 'src/assets/images/otdih/sport/01.jpg' },
+      { order: 2, photo: 'src/assets/images/otdih/sport/02.jpg' },
+      { order: 3, photo: 'src/assets/images/otdih/sport/03.jpg' },
+      { order: 4, photo: 'src/assets/images/otdih/sport/04.jpg' },
+      { order: 5, photo: 'src/assets/images/otdih/sport/05.jpg' },
+      { order: 6, photo: 'src/assets/images/otdih/sport/06.jpg' },
+      { order: 7, photo: 'src/assets/images/otdih/sport/07.jpg' },
+      { order: 8, photo: 'src/assets/images/otdih/sport/08.jpg' },
+      { order: 9, photo: 'src/assets/images/otdih/sport/09.jpg' },
+      { order: 10, photo: 'src/assets/images/otdih/sport/10.jpg' },
+      { order: 11, photo: 'src/assets/images/otdih/sport/11.jpg' },
+      { order: 12, photo: 'src/assets/images/otdih/sport/12.jpg' },
+      { order: 13, photo: 'src/assets/images/otdih/sport/13.jpg' },
+      { order: 14, photo: 'src/assets/images/otdih/sport/14.jpg' },
+      { order: 15, photo: 'src/assets/images/otdih/sport/15.jpg' }
+    ]
 
 </script>
