@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-default" @click="$router.push({ name: 'Archive' })">Архив -></button>
+          <button type="button" class="btn btn-default" @click="$router.push({ name: 'Archive' })">Архив <q-icon name="east" /></button>
         </div>
       </div>
     </div>
