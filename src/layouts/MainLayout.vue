@@ -1,13 +1,6 @@
 <template>
     <q-layout view="lHh Lpr lFf">
-        <!-- <q-header elevated>
-            <q-toolbar>
-                <q-toolbar-title> RSUE </q-toolbar-title>
-            </q-toolbar>
-        </q-header> -->
         <AppHeader/>
-        <!-- <SideBar/> -->
-
         <q-page-container>
             <router-view />
         </q-page-container>
