@@ -7,9 +7,6 @@
   <div class="footer">
     <div class="container">
       <h4 id="footer_text">© «Ростовский государственный экономический университет (РИНХ)»
-        <a href="//www.liveinternet.ru/click" target="_blank"><img
-            src="//counter.yadro.ru/hit?t44.6;r;s2880*1800*30;uhttp%3A//localhost%3A8080/otdih;0.3869637443048287"
-            alt="" title="LiveInternet" border="0" width="31" height="31"></a>
       </h4>
     </div>
   </div>
